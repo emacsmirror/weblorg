@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block header %}
+  <meta property="og:site_name" content="{{ blog.title }}"
+  <meta property="og:title" content="{{ post.title }}">
+  <meta property="og:description" content="{{ post.description }}">
+  {% if post.image %}
+    <meta property="og:image" content="{{ post.image }}">
+  {% elif blog.image %}
+    <meta property="og:image" content="{{ blog.image }}">
+  {% endif %}
+  <meta property="og:url" content="{{ post.url }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image:alt" content="{{ blog.title }}">
+{% endblock %}
+
+{% block body %}
+  <section class="post">
+    <header>
+      <h1>{{ post.title }}</h1>
+      <div>{{ post.date }}</div>
+    </header>
+    <div id="content">
+      {{ post.html }}
+    </div>
+  </section>
+{% endblock %}

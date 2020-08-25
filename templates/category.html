@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <section class="category">
+    <header>
+      <h1>Posts about {{ category.name }}</h1>
+    </header>
+    <div id="content">
+      <h2>{{ category.name }}</h2>
+      <ul>
+        {% for post in category.posts %}
+          <li>
+            <a href="{{ post.url }}">
+              {{ post.date }} &mdash; {{ post.title }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+{% endblock %}

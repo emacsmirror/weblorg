@@ -1,0 +1,8 @@
+#+TITLE: blorg
+#+OPTIONS: toc:nil num:nil
+
+* Introduction
+
+  /blorg/ is a one-liner static HTML generator for Emacs-Lisp.  It
+  will find your Org-Mode files, filter them, aggregate them and then
+  finally render into the final shape.

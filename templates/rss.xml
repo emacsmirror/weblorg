@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ blog.title }}</title>
+    <atom:link href="{{ blog.rss_url }}" rel="self" type="application/rss+xml"/>
+    {% if blog.link %}<link>{{ blog.url }}</link>{% endif %}
+    {% if blog.desc %}<description>{{ blog.desc }}</description>{% endif %}
+    {% if blog.lang %}<language>{{ blog.lang }}</language>{% endif %}
+    {# <pubDate>{{ (posts|first).pubdate }}</pubDate> #}
+    <generator>{{ meta.generator }}</generator>
+
+    {% if blog.img_url %}
+    <image>
+      <url>{{ blog.img_url }}</url>
+      <title>{{ blog.title }}</title>
+      <link>{{ blog.url }}</link>
+    </image>
+    {% endif %}
+
+    {% for post in posts %}
+    <item>
+      <title>{{ post.title }}</title>
+      <link>{{ post.url }}</link>
+      <guid isPermaLink="false">{{ post.url }}</guid>
+      <pubDate>{{ post.pubdate }}</pubDate>
+      {% if post.author %}<author>{{ post.author }}</author>{% endif %}
+      <description><![CDATA[{{ post.html }}]]></description>
+    </item>
+    {% endfor %}
+  </channel>
+</rss>
